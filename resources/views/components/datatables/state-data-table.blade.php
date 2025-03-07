@@ -15,6 +15,4 @@
             {{ __('labeltables.deleted') }}
         </span>
     @endif
-
-
 </div>
