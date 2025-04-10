@@ -45,7 +45,6 @@
     <div class="font-sans text-gray-900 antialiased">
         {{ $slot }}
     </div>
-
     @stack('modals')
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -55,7 +54,6 @@
     @livewireScripts
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
-
 
     @stack('custom-scripts')
 </body>

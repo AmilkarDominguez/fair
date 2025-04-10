@@ -17,7 +17,7 @@ class Home extends Component
             [
                 'products' => Product::where('state', 'ACTIVO')->paginate(10),
             ]
-        )->layout('layouts.guest');
+        )->layout('layouts.public');
     }
 
     public $options = ['Pabellones'];

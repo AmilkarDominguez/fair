@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-
     <title>{{ config('app.name', 'FERIA') }}</title>
     {{-- <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"> --}}
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}">
@@ -30,12 +28,8 @@
 
     @livewireStyles
 
-
-
-
     <!-- Scripts sweetalert2-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <x-livewire-alert::scripts />
     <!-- end sweetalert2-->
 
@@ -45,15 +39,31 @@
 
     <script src="https://kit.fontawesome.com/d28e5f8122.js" crossorigin="anonymous"></script>
 
-
-
-
 </head>
 
-<body class="font-sans">
+<body class="font-sans w-full h-full">
+    <header class="z-10 fixed top-0 flex justify-between p-4 border shadow-md w-full bg-gray-100 h-20">
+        <div class="flex justify-center items-center">
+            <img class="h-10" src="https://img.freepik.com/free-vector/gradient-tn-nt-logo-template_23-2149239308.jpg" alt="logo">
+        </div>
+        <div class="flex gap-2">
+            <a href="/home"
+            class="flex justify-center items-center px-4 rounded-full cursor-pointer hover:bg-primary-500 hover:text-white">Inicio</a>
+            <a href="!#"
+                class="flex justify-center items-center px-4 rounded-full cursor-pointer hover:bg-primary-500 hover:text-white">Registrarse</a>
+            <a href="!#"
+                class="flex justify-center items-center px-4 rounded-full cursor-pointer hover:bg-primary-500 hover:text-white">Ingresar</a>
+        </div>
+    </header>
     <main>
         {{ $slot }}
     </main>
+
+
+    <footer class="footer bottom-0 left-0 mt-20 border-b-4 bg-gray-100 border-primary-500 w-full py-4">
+        @stack('footer')        
+    </footer>
+
 
     @stack('modals')
 
@@ -64,7 +74,6 @@
     @livewireScripts
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
-
 
     @stack('custom-scripts')
 
