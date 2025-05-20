@@ -8,8 +8,10 @@ use App\Http\Livewire\Calendar\CalendarUpdate;
 use App\Http\Livewire\Fair\FairCreate;
 use App\Http\Livewire\Fair\FairDashboard;
 use App\Http\Livewire\Fair\FairUpdate;
+use App\Http\Livewire\Fair\Stand;
 use App\Http\Livewire\Home\Home;
 use App\Http\Livewire\Home\Pavilion;
+use App\Http\Livewire\Home\Stand as HomeStand;
 use App\Http\Livewire\Information\InformationCreate;
 use App\Http\Livewire\Information\InformationDashboard;
 use App\Http\Livewire\Information\InformationUpdate;
@@ -148,7 +150,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified', 'language'], 'prefix'
 
 //Feria
 Route::get('home', Home::class)->name('home')->middleware('auth');
-Route::get('pavilion/{slug}', Pavilion::class)->name('pavilion.detail');
+Route::get('pavilion-detail/{slug}', Pavilion::class)->name('pavilion.detail');
+Route::get('stand-detail/{slug}', HomeStand::class)->name('stand.detail');
 Route::get('stand-request', StandRequestExternal::class)->name('stand.request');
 
 //Route::get('stand/{slug}', Stand::class)->name('stand.detail');

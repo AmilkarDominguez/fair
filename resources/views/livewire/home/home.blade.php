@@ -27,9 +27,11 @@
         <section class="font-bold text-gray-800 text-4xl text-center">
             Visita nuestros pabellones
         </section>
-        <section class="flex gap-2 w-full sm:w-1/2 overflow-x-scroll py-4">
-            <section class="flex gap-2">
-                @foreach ($pavilions as $pavilion)
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
+
+            @foreach ($pavilions as $pavilion)
+                <div class="col-span-1 md:col-span-1">
                     <a href="{{ route('pavilion.detail', $pavilion->slug) }}"
                         class="h-52 w-52 gap-2 flex flex-col items-center justify-center  border rounded-md bg-white cursor-pointer transition transform hover:scale-95 hover:bg-primary-50 hover:bg-opacity-10">
                         @if ($pavilion->photo)
@@ -43,9 +45,11 @@
                             {{ $pavilion->name }}
                         </section>
                     </a>
-                @endforeach
-            </section>
-        </section>
+                </div>
+            @endforeach
+        </div>
+
+
     </section>
     {{-- end pavilions --}}
     {{-- steps --}}
@@ -86,7 +90,7 @@
                     <section class="text-sm">VISITAS</section>
                 </section>
                 <section class="border rounded w-28 h-28 flex justify-center items-center flex-col">
-                    <section class="text-green-400 text-xl font-black">15</section>
+                    <section class="text-green-400 text-xl font-black">{{count($pavilions)}}</section>
                     <section class="text-sm">PABELLONES</section>
                 </section>
                 <section class="border rounded w-28 h-28 flex justify-center items-center flex-col">
@@ -119,10 +123,10 @@
 
 
     @push('footer')
-    <x-footer direction="{{ $information->direction }}" phone="{{ $information->phone }}"
-        whatsapp="{{ $information->whatsapp }}" email="{{ $information->email }}"
-        facebook="{{ $information->facebook }}" instagram="{{ $information->instagram }}">
-    </x-footer>
+        <x-footer direction="{{ $information->direction }}" phone="{{ $information->phone }}"
+            whatsapp="{{ $information->whatsapp }}" email="{{ $information->email }}"
+            facebook="{{ $information->facebook }}" instagram="{{ $information->instagram }}">
+        </x-footer>
     @endpush
 
 </div>

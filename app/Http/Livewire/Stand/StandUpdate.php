@@ -109,7 +109,10 @@ class StandUpdate extends Component
         }
 
         if ($this->logo_new) {
-            Storage::disk('public_uploads')->delete($this->logo);
+            if (file_exists('storage/stand-logos/' . $this->logo)) {
+                Storage::disk('public_uploads')->delete($this->logo);
+            }
+            // Storage::disk('public_uploads')->delete($this->logo);
             $filePath = time() . '-stand-logo.' . $this->logo_new->getClientOriginalExtension();
             $img = Image::make($this->logo_new)
                 ->resize(1080, null, function ($constraint) {

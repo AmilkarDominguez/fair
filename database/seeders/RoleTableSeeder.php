@@ -37,6 +37,7 @@ class RoleTableSeeder extends Seeder
         $rol_feriante->description = 'Feriante';
         $rol_feriante->slug = Str::uuid();
         $rol_feriante->save();
+        
 
         //CREDENCIALES PARA Administrador
         $persona = Person::create([

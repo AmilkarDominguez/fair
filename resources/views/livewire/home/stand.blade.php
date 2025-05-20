@@ -1,6 +1,6 @@
-<div>
+<div class="min-h-screenpt-10">
     {{-- svg stand --}}
-    <div>
+    <div class="mt-10 bg-indigo-200">
         <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             x="0px" y="0px" viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve"
             width="100%">
@@ -34,7 +34,7 @@
 
             </style>
             <g id="fondo">
-                <image style="overflow:visible;enable-background:new    ;" width="1920" height="1080"
+                <image style="overflow:visible;enable-background:new;" width="100%" height="1080"
                     xlink:href="{{ asset('/images/stands/bg-stands.png') }}">
                 </image>
             </g>
@@ -173,5 +173,10 @@
         </div>
     </footer>
 
-
+    @push('footer')
+        <x-footer direction="{{ $information->direction }}" phone="{{ $information->phone }}"
+            whatsapp="{{ $information->whatsapp }}" email="{{ $information->email }}"
+            facebook="{{ $information->facebook }}" instagram="{{ $information->instagram }}">
+        </x-footer>
+    @endpush
 </div>
