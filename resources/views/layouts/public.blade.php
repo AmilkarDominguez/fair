@@ -38,7 +38,8 @@
 
 
     <script src="https://kit.fontawesome.com/d28e5f8122.js" crossorigin="anonymous"></script>
-
+    
+    @laravelPWA
 </head>
 
 <body class="font-sans w-full h-full">

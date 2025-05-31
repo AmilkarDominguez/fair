@@ -188,3 +188,8 @@ Route::get('storage-link', function () {
 
     return 'The "public/storage" directory has been linked';
 });
+
+
+Route::get('/offline', function () {
+    return view('vendor.laravelpwa.offline');
+});
