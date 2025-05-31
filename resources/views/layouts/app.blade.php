@@ -31,8 +31,7 @@
     @livewireStyles
 
     <!-- Scripts sweetalert2-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <x-livewire-alert::scripts />
     <!-- end sweetalert2-->
 
@@ -42,8 +41,7 @@
 
     <script src="https://kit.fontawesome.com/d28e5f8122.js" crossorigin="anonymous"></script>
 
-
-
+    @laravelPWA
 
 </head>
 
@@ -75,7 +73,7 @@
                     </svg>
                 </a>
             </div>
-            <nav :class="{'block': open, 'hidden': !open}"
+            <nav :class="{ 'block': open, 'hidden': !open }"
                 class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
 
 
@@ -87,12 +85,10 @@
 
                 {{-- Options Admin Reader --}}
                 @if (Auth::user()->hasAnyRole(['admin', 'reader']))
-
                 @endif
 
                 {{-- Options Admin --}}
                 @if (Auth::user()->hasRole('admin'))
-
                 @endif
 
 
@@ -125,7 +121,7 @@
                                 <div class="flex space-x-2 ">
                                     <div class="flex h-full justify-center items-center">
                                         <svg fill="currentColor" viewBox="0 0 20 20"
-                                            :class="{'rotate-180': open, 'rotate-0': !open}"
+                                            :class="{ 'rotate-180': open, 'rotate-0': !open }"
                                             class="w-6 h-6 transition-transform duration-200 transform">
                                             <path fill-rule="evenodd"
                                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -144,12 +140,14 @@
                             class=" right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                             <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-primary-800">
 
-                                <x-a-sidenav href="{{ route('user.dashboard') }}"
-                                    :active="request()->routeIs('user.dashboard') || request()->routeIs('user.create') || request()->routeIs('user.update')">
+                                <x-a-sidenav href="{{ route('user.dashboard') }}" :active="request()->routeIs('user.dashboard') ||
+                                    request()->routeIs('user.create') ||
+                                    request()->routeIs('user.update')">
                                     <i class="fas fa-users-cog"></i> Usuarios
                                 </x-a-sidenav>
-                                <x-a-sidenav href="{{ route('role.dashboard') }}"
-                                    :active="request()->routeIs('role.dashboard') || request()->routeIs('role.create') || request()->routeIs('role.update')">
+                                <x-a-sidenav href="{{ route('role.dashboard') }}" :active="request()->routeIs('role.dashboard') ||
+                                    request()->routeIs('role.create') ||
+                                    request()->routeIs('role.update')">
                                     <i class="fas fa-users-cog"></i> Roles
                                 </x-a-sidenav>
 
@@ -180,7 +178,7 @@
                                 <div class="flex space-x-2 ">
                                     <div class="flex h-full justify-center items-center">
                                         <svg fill="currentColor" viewBox="0 0 20 20"
-                                            :class="{'rotate-180': open, 'rotate-0': !open}"
+                                            :class="{ 'rotate-180': open, 'rotate-0': !open }"
                                             class="w-6 h-6 transition-transform duration-200 transform">
                                             <path fill-rule="evenodd"
                                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -199,56 +197,60 @@
                             class=" right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
                             <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-primary-800">
 
-                                <x-a-sidenav href="{{ route('fair.dashboard') }}"
-                                             :active="request()->routeIs('fair.dashboard') || request()->routeIs('fair.create') || request()->routeIs('fair.update')">
+                                <x-a-sidenav href="{{ route('fair.dashboard') }}" :active="request()->routeIs('fair.dashboard') ||
+                                    request()->routeIs('fair.create') ||
+                                    request()->routeIs('fair.update')">
                                     <i class="fas fa-users-cog"></i> Ferias
                                 </x-a-sidenav>
 
-                                <x-a-sidenav href="{{ route('pavilion.dashboard') }}"
-                                    :active="request()->routeIs('pavilion.dashboard') || request()->routeIs('pavilion.create') || request()->routeIs('pavilion.update')">
+                                <x-a-sidenav href="{{ route('pavilion.dashboard') }}" :active="request()->routeIs('pavilion.dashboard') ||
+                                    request()->routeIs('pavilion.create') ||
+                                    request()->routeIs('pavilion.update')">
                                     <i class="fas fa-users-cog"></i> Pabellones
                                 </x-a-sidenav>
 
-                                <x-a-sidenav href="{{ route('stand-request.dashboard') }}"
-                                             :active="request()->routeIs('stand-request.dashboard') || request()->routeIs('stand-request.create')">
+                                <x-a-sidenav href="{{ route('stand-request.dashboard') }}" :active="request()->routeIs('stand-request.dashboard') ||
+                                    request()->routeIs('stand-request.create')">
                                     <i class="fas fa-users-cog"></i> Solicitudes de Stands
                                 </x-a-sidenav>
 
-                                <x-a-sidenav href="{{ route('stand.dashboard') }}"
-                                             :active="request()->routeIs('stand.dashboard') || request()->routeIs('stand.create')">
+                                <x-a-sidenav href="{{ route('stand.dashboard') }}" :active="request()->routeIs('stand.dashboard') || request()->routeIs('stand.create')">
                                     <i class="fas fa-users-cog"></i> Stands
                                 </x-a-sidenav>
 
-                                <x-a-sidenav href="{{ route('product-category.dashboard') }}"
-                                             :active="request()->routeIs('product-category.dashboard') || request()->routeIs('product-category.create') || request()->routeIs('product-category.update')">
+                                <x-a-sidenav href="{{ route('product-category.dashboard') }}" :active="request()->routeIs('product-category.dashboard') ||
+                                    request()->routeIs('product-category.create') ||
+                                    request()->routeIs('product-category.update')">
                                     <i class="fas fa-users-cog"></i> Categorías de Productos
                                 </x-a-sidenav>
 
-                                <x-a-sidenav href="{{ route('product.dashboard') }}"
-                                :active="request()->routeIs('product.dashboard') || request()->routeIs('product.create') || request()->routeIs('product.update')">
+                                <x-a-sidenav href="{{ route('product.dashboard') }}" :active="request()->routeIs('product.dashboard') ||
+                                    request()->routeIs('product.create') ||
+                                    request()->routeIs('product.update')">
                                     <i class="fas fa-users-cog"></i> Productos
                                 </x-a-sidenav>
 
-                                <x-a-sidenav href="{{ route('webinar.dashboard') }}"
-                                :active="request()->routeIs('webinar.dashboard') || request()->routeIs('webinar.create') || request()->routeIs('webinar.update')">
+                                <x-a-sidenav href="{{ route('webinar.dashboard') }}" :active="request()->routeIs('webinar.dashboard') ||
+                                    request()->routeIs('webinar.create') ||
+                                    request()->routeIs('webinar.update')">
                                     <i class="fas fa-users-cog"></i> Webinars
                                 </x-a-sidenav>
 
-                                <x-a-sidenav href="{{ route('publication.dashboard') }}"
-                                :active="request()->routeIs('publication.dashboard') || request()->routeIs('publication.create')">
-                                <i class="fas fa-users-cog"></i> Publicaciones
+                                <x-a-sidenav href="{{ route('publication.dashboard') }}" :active="request()->routeIs('publication.dashboard') ||
+                                    request()->routeIs('publication.create')">
+                                    <i class="fas fa-users-cog"></i> Publicaciones
                                 </x-a-sidenav>
 
 
-                                <x-a-sidenav href="{{ route('type-company.dashboard') }}"
-                                    :active="request()->routeIs('type-company.dashboard') || request()->routeIs('type-company.create')">
+                                <x-a-sidenav href="{{ route('type-company.dashboard') }}" :active="request()->routeIs('type-company.dashboard') ||
+                                    request()->routeIs('type-company.create')">
                                     <i class="fas fa-users-cog"></i> Tipo de empresas
                                 </x-a-sidenav>
 
-                                <x-a-sidenav href="{{ route('business-wheel.dashboard') }}"
-                                :active="request()->routeIs('business-wheel.dashboard') || request()->routeIs('business-wheel.update')">
-                                <i class="fas fa-users-cog"></i> Rueda de negocios
-                            </x-a-sidenav>
+                                <x-a-sidenav href="{{ route('business-wheel.dashboard') }}" :active="request()->routeIs('business-wheel.dashboard') ||
+                                    request()->routeIs('business-wheel.update')">
+                                    <i class="fas fa-users-cog"></i> Rueda de negocios
+                                </x-a-sidenav>
                             </div>
                         </div>
                     </div>
@@ -279,9 +281,8 @@
                                     <div
                                         class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
 
-                                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg"
-                                            class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                            stroke="currentColor">
+                                        <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
@@ -296,7 +297,7 @@
                             <div class="flex space-x-2 ">
                                 <div class="flex h-full justify-center items-center">
                                     <svg fill="currentColor" viewBox="0 0 20 20"
-                                        :class="{'rotate-180': open, 'rotate-0': !open}"
+                                        :class="{ 'rotate-180': open, 'rotate-0': !open }"
                                         class="w-6 h-6 transition-transform duration-200 transform">
                                         <path fill-rule="evenodd"
                                             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
@@ -326,7 +327,8 @@
 
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                 this.closest('form').submit();"
                                     class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-full dark-mode:bg-transparent dark-mode:hover:bg-primary-600 dark-mode:focus:bg-primary-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-primary-500 focus:text-primary-500 hover:bg-primary-200 "
                                     href="#">{{ __('menu.logout') }}</a>

@@ -21,7 +21,8 @@
         "laraveles/spanish": "^1.5",
         "livewire/livewire": "^2.0",
         "maatwebsite/excel": "^3.1",
-        "mediconesystems/livewire-datatables": "dev-master"
+        "mediconesystems/livewire-datatables": "dev-master",
+        "silviolleite/laravelpwa": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

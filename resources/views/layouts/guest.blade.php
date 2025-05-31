@@ -38,7 +38,7 @@
     <script src="{{ mix('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/d28e5f8122.js" crossorigin="anonymous"></script>
 
-
+    @laravelPWA
 </head>
 
 <body>
